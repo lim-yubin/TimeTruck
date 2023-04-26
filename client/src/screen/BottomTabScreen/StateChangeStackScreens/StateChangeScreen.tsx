@@ -1,3 +1,4 @@
+import { createStackNavigator } from "@react-navigation/stack";
 import {
   View,
   Text,
@@ -6,12 +7,12 @@ import {
   Image,
   SafeAreaView,
 } from "react-native";
-export default function StateChangeScreen() {
+import HomeScreen from "../../../screen/BottomTabScreen/HomeStackScreens/HomeScreen";
+const Stack = createStackNavigator();
+export default function HomeStackNavigator() {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>상태변경</Text>
-      </View>
-    </SafeAreaView>
+    <Stack.Navigator>
+      <Stack.Screen name="HOME" component={HomeScreen} />
+    </Stack.Navigator>
   );
 }
