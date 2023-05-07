@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import RootNavigator from "./src/navigation";
+import AppColors from "./src/constants/AppColors";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -34,7 +35,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: AppColors.background,
     alignItems: "center",
     justifyContent: "center",
   },

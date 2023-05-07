@@ -9,31 +9,43 @@ import {
 } from "react-native";
 import AppColors from "../../../constants/AppColors";
 import TruckState from "../../../components/TruckState";
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }: any) {
   return (
     <SafeAreaView>
       <ScrollView style={css.container}>
         <View style={css.header}>
-          <View style={css.working}>
-            <Text style={css.label}>작업중</Text>
-            <Text style={css.value}>22대</Text>
+          <View style={css.titleBox}>
+            <Text style={css.title}>트럭현황</Text>
           </View>
-          <View style={css.goBack}>
-            <Text style={css.label}>복귀중</Text>
-            <Text style={css.value}>17대</Text>
-          </View>
-          <View style={css.unLoading}>
-            <Text style={css.label}>하역중</Text>
-            <Text style={css.value}>12대</Text>
+          <View style={css.contentBox}>
+            <View style={css.contentTextBox}>
+              <Text style={css.contentText}>작업중</Text>
+              <Text style={css.contentText}>25대</Text>
+            </View>
+            <View style={css.divider} />
+            <View style={css.contentTextBox}>
+              <Text style={css.contentText}>하역중</Text>
+              <Text style={css.contentText}>10대</Text>
+            </View>
           </View>
         </View>
+        <View style={css.sortContainer}>
+          <TouchableOpacity style={{ padding: 1 }}>
+            <Text style={css.sortText}>작업중</Text>
+          </TouchableOpacity>
+        </View>
         <View style={css.inner}>
-          <TruckState num={1} />
-          <TruckState num={2} />
-          <TruckState num={2} />
-          <TruckState num={1} />
-          <TruckState num={3} />
-          <TruckState num={3} />
+          <TruckState />
+          <TruckState />
+          <TruckState />
+          <TruckState />
+          <TruckState />
+          <TruckState />
+          <TruckState />
+          <TruckState />
+          <TruckState />
+          <TruckState />
+          <TruckState />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -42,60 +54,66 @@ export default function HomeScreen() {
 
 const css = StyleSheet.create({
   container: {
-    paddingTop: 40,
+    paddingTop: 30,
     paddingHorizontal: 20,
-    backgroundColor: AppColors.lightGray,
+    backgroundColor: AppColors.background,
   },
   header: {
+    backgroundColor: AppColors.dark,
+    height: 169,
+    borderRadius: 5,
+    marginBottom: 33,
+    padding: 13,
+  },
+  titleBox: {
+    marginBottom: 30,
+  },
+  title: {
+    fontSize: 16,
+    color: AppColors.whiteText,
+    fontFamily: "NotoSans-SemiBold",
+  },
+  contentBox: {
+    height: 73,
+    borderColor: "white",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+  contentTextBox: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
-    marginBottom: 40,
+    justifyContent: "space-between",
   },
-  working: {
-    width: "30%",
-    height: 70,
-    // borderWidth: 1,
-    borderRadius: 10,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "green",
-  },
-  goBack: {
-    width: "30%",
-    height: 70,
-    // borderWidth: 1,
-    borderRadius: 10,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "orange",
-  },
-  unLoading: {
-    width: "30%",
-    height: 70,
-    // borderWidth: 1,
-    borderRadius: 10,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "tomato",
-  },
-  label: {
+  contentText: {
+    color: AppColors.whiteText,
     fontFamily: "NotoSans-SemiBold",
-    fontSize: 20,
+    fontSize: 16,
+    fontWeight: "bold",
   },
-  value: {
+  divider: {
+    height: 1,
+    width: "100%",
+    backgroundColor: AppColors.whiteText,
+  },
+  sortContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    height: 20,
+    width: "100%",
+    marginBottom: 15,
+  },
+  sortText: {
+    fontSize: 16,
     fontFamily: "NotoSans-SemiBold",
-    fontSize: 26,
+    color: AppColors.whiteText,
   },
-
   inner: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
     // borderWidth: 1,
+    justifyContent: "space-between",
   },
 });

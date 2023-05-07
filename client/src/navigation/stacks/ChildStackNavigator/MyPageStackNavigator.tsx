@@ -13,7 +13,13 @@ const Stack = createStackNavigator();
 export default function MyPageStackNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="MyPage" component={MyPageScreens} />
+      <Stack.Screen
+        name="MyPage"
+        options={{
+          headerShown: false,
+        }}
+        component={MyPageScreens}
+      />
     </Stack.Navigator>
   );
 }

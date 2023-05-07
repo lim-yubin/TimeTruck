@@ -12,7 +12,13 @@ const Stack = createStackNavigator();
 export default function StateChangeStackNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="State" component={StackChangeScreen} />
+      <Stack.Screen
+        name="State"
+        options={{
+          headerShown: false,
+        }}
+        component={StackChangeScreen}
+      />
     </Stack.Navigator>
   );
 }

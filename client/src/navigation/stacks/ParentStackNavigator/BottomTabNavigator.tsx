@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import AppColors from "../../../constants/AppColors";
 import HomeStackNavigator from "../ChildStackNavigator/HomeStackNavigator";
 import StateChangeStackNavigator from "../ChildStackNavigator/StateChangeStackNavigator";
@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function BottomTabNavigator() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName="StateTab">
       <Tab.Screen
         name="HomeTab"
         component={HomeStackNavigator}
@@ -29,10 +29,21 @@ export default function BottomTabNavigator() {
   );
 }
 const TAB_ONE_OP = {
-  headerShown: false,
-  tabBarLabel: "홈",
-  tabBarActiveTintColor: AppColors.main,
-  tabBarInactiveTintColor: AppColors.lightGray,
+  headerShown: true,
+  tabBarLabel: "모아보기",
+  tabBarActiveTintColor: AppColors.dark,
+  tabBarInactiveTintColor: AppColors.main,
+  headerTitle: "",
+  headerStyle: {
+    backgroundColor: AppColors.main,
+  },
+  headerShadowVisible: false,
+  headerLeft: () => (
+    <View style={css.headerLeftContainer}>
+      <Text style={css.headerLeft}>모아보기</Text>
+    </View>
+  ),
+
   //   tabBarIcon: ({ focused }: any) => {
   //     return focused ? (
   //       <Image source={require("../assets/Icons/Icon_tab_1_active.png")} />
@@ -42,10 +53,20 @@ const TAB_ONE_OP = {
   //   },
 };
 const TAB_TWO_OP = {
-  headerShown: false,
-  tabBarLabel: "일정추가",
-  tabBarActiveTintColor: AppColors.main,
-  tabBarInactiveTintColor: AppColors.lightGray,
+  headerShown: true,
+  tabBarLabel: "상태변경",
+  tabBarActiveTintColor: AppColors.dark,
+  tabBarInactiveTintColor: AppColors.main,
+  headerTitle: "",
+  headerStyle: {
+    backgroundColor: AppColors.main,
+  },
+  headerShadowVisible: false,
+  headerLeft: () => (
+    <View style={css.headerLeftContainer}>
+      <Text style={css.headerLeft}>상태변경</Text>
+    </View>
+  ),
   //   tabBarIcon: ({ focused }: any) => {
   //     return focused ? (
   //       <Image source={require("../assets/Icons/Icon_tab_2_active.png")} />
@@ -55,10 +76,20 @@ const TAB_TWO_OP = {
   //   },
 };
 const TAB_THREE_OP = {
-  headerShown: false,
-  tabBarLabel: "마이페이지",
-  tabBarActiveTintColor: AppColors.main,
-  tabBarInactiveTintColor: AppColors.lightGray,
+  headerShown: true,
+  tabBarLabel: "내정보",
+  tabBarActiveTintColor: AppColors.dark,
+  tabBarInactiveTintColor: AppColors.main,
+  headerTitle: "",
+  headerStyle: {
+    backgroundColor: AppColors.main,
+  },
+  headerShadowVisible: false,
+  headerLeft: () => (
+    <View style={css.headerLeftContainer}>
+      <Text style={css.headerLeft}>내정보</Text>
+    </View>
+  ),
   //   tabBarIcon: ({ focused }: any) => {
   //     return focused ? (
   //       <Image source={require("../assets/Icons/Icon_tab_3_active.png")} />
@@ -67,3 +98,14 @@ const TAB_THREE_OP = {
   //     );
   //   },
 };
+
+const css = StyleSheet.create({
+  headerLeftContainer: {
+    paddingLeft: 20,
+  },
+  headerLeft: {
+    color: AppColors.whiteText,
+    fontSize: 24,
+    fontFamily: "NotoSans-SemiBold",
+  },
+});

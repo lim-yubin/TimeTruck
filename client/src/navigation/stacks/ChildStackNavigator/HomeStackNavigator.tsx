@@ -17,7 +17,6 @@ export default function HomeStackNavigator() {
         component={HomeScreen}
         options={{
           headerShown: false,
-          headerTitle: "전체 차량",
         }}
       />
     </Stack.Navigator>
